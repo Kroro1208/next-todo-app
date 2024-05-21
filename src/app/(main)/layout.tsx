@@ -6,7 +6,7 @@ const Mainlayout = ({ children }: Readonly<{children: React.ReactNode}>) => {
       <div className="bg-indigo-300">
         <SideMenu />
       </div>
-      <main className="bg-red-300 flex-1 overflow-auto">
+      <main className="bg-slate-50 flex-1 overflow-auto">
         {children}
       </main>
     </div>
