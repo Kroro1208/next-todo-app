@@ -14,7 +14,7 @@ const NavaItem = ({ label, link, icon }: NavItemProps) => {
   return (
     <Link href={link}
     className={`flex gap-2 w-full p-4 hover:bg-gray-700 font-medium items-center
-    ${pathname === link ? 'bg-gray-600 border-r-4 border-r-green-500' : ""}`}
+    ${pathname === link ? 'bg-gray-600 border-r-8 border-r-green-500' : ""}`}
     >
         <div>{icon}</div>
         <div>{label}</div>
