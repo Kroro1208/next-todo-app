@@ -23,3 +23,8 @@ https://react-icons.github.io/react-icons/
 npm i react-icons --save
 npm i -D @types/react-icons // 型定義
 ```
+
+## Mongo DB設定
+```
+npm i mongoose
+```
