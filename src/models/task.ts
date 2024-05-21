@@ -1,8 +1,8 @@
 import mongoose, { Document } from "mongoose";
 
 export interface Task {
-    title: StaticRangeInit;
-    desciption: string;
+    title: string;
+    description: string;
     dueDate: string;
     isComppleted: boolean;
 }
