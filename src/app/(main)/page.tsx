@@ -1,3 +1,4 @@
+import TaskCard from "@/components/TaskCard/ TaskCard";
 import Link from "next/link";
 import { MdOutlineLibraryAdd } from "react-icons/md";
 
@@ -16,7 +17,7 @@ export default function MainPage() {
         </Link>
       </header>
       <div className="mt-8 flex flex-wrap gap-4">
-        タスクカード
+        <TaskCard />
       </div>
     </div>
   );
