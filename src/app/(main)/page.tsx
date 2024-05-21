@@ -9,7 +9,7 @@ export default function MainPage() {
         <h1 className="text-2xl font-bold flex items-center">全てのタスク</h1>
         <Link href='/new'
         className="flex items-center gap-2 font-semibold border px-4 py-2
-        rounded-full shadow-lg text-white bg-gray-500 hover:bg-gray-700
+        rounded-full shadow-lg text-white bg-gray-500 hover:bg-indigo-500
         transform hover:scale-105 transition-transform duration-300
         shadow-gray-700 hover:shadow-gray-600">
           <MdOutlineLibraryAdd className="size-5"/>

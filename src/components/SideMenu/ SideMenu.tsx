@@ -8,7 +8,7 @@ const SideMenu = () => {
       <div>
         <div className="flex justify-center">
           <FaGripfire size={28}/>
-          <h1 className="px-1 text-lg font-semibold text-center">Next Todo App</h1>
+          <h1 className="px-1 text-lg font-semibold text-center">Neo Todo App</h1>
           <FaGripfire size={28}/>
         </div>
         <NavList />

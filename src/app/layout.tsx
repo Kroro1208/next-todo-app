@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next TODO App",
+  title: "Neo Todo App",
   description: "基本的なCRUD操作で実装するTODOアプリ",
 };
 
