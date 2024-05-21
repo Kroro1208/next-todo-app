@@ -1,6 +1,7 @@
 import { FaTasks } from "react-icons/fa";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { RiAlarmWarningFill } from "react-icons/ri";
+import NavaItem from "./NavItem/NavaItem";
 
 interface NavItemType {
     id: number;
@@ -33,11 +34,9 @@ const NavList = () => {
 
   return (
     <div className="mt-24">
-      <ul>
-        <li>main</li>
-        <li>link1</li>
-        <li>link2</li>
-      </ul>
+      {navList.map((item) => (
+        <NavaItem key={item.id} label={item.label} link={item.link} icon={item.icon}/>
+      ))}
     </div>
   )
 }
