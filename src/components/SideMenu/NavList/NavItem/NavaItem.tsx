@@ -9,7 +9,7 @@ interface NavItemProps {
     icon: React.ReactNode;
 }
 
-const NavaItem: React.FC<NavItemProps> = ({ label, link, icon }) => {
+const NavaItem = ({ label, link, icon }: NavItemProps) => {
     const pathname = usePathname();
   return (
     <Link href={link}

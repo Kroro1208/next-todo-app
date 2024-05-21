@@ -10,28 +10,28 @@ interface NavItemType {
     icon: React.ReactNode;
 }
 
-const NavList = () => {
-    const navList: NavItemType[] = [
-        {
-            id: 1,
-            label: '全てのタスク',
-            link: '/',
-            icon: <FaTasks className="size-5" />
-        },
-        {
-            id: 2,
-            label: '完了したタスク',
-            link: '/completed',
-            icon: <FaRegCalendarCheck className="size-5" />
-        },
-        {
-            id: 3,
-            label: '期限切れのタスク',
-            link: '/expired',
-            icon: <RiAlarmWarningFill className="size-5" />
-        },
-    ];
+const navList: NavItemType[] = [
+    {
+        id: 1,
+        label: '全てのタスク',
+        link: '/',
+        icon: <FaTasks className="size-5" />
+    },
+    {
+        id: 2,
+        label: '完了したタスク',
+        link: '/completed',
+        icon: <FaRegCalendarCheck className="size-5" />
+    },
+    {
+        id: 3,
+        label: '期限切れのタスク',
+        link: '/expired',
+        icon: <RiAlarmWarningFill className="size-5" />
+    },
+];
 
+const NavList = () => {
   return (
     <div className="mt-24">
       {navList.map((item) => (
