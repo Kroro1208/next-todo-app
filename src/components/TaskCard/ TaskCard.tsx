@@ -20,7 +20,7 @@ const TaskCard = ({ task }: TaskCardProps) => {
             ${task.isCompleted ? 'bg-green-500' : 'bg-red-400'}
             `}>{task.isCompleted ? '完了' : '未完了'}</div>
             <div className="flex gap-4">
-                <EditButton id={task.id}/>
+                <EditButton id={task._id}/>
                 <DeleteButton id={task.id}/>
             </div>
         </div>
