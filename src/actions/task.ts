@@ -29,6 +29,7 @@ export const createTask = async (state: FormState, formData: FormData) => {
     redirect('/');
 }
 
+//task編集&更新のための関数
 export const updateTask = async (id: string, state: FormState, formData: FormData) => {
     const updateTask: Task = {
         title: formData.get('title') as string,
@@ -43,6 +44,21 @@ export const updateTask = async (id: string, state: FormState, formData: FormDat
         await TaskModel.updateOne({ _id: id }, updateTask);
     } catch (error) {
         state.error = 'タスクの更新に失敗しました'
+        return state;
+    }
+    // タスクが更新されたらリダイレクト
+    redirect('/');
+}
+
+//task削除のための関数
+export const deleteTask = async (id: string, state: FormState) => {
+
+    //タスクを削除
+    try {
+        await connectDB()
+        await TaskModel.deleteOne({ _id: id });
+    } catch (error) {
+        state.error = 'タスクの削除に失敗しました'
         return state;
     }
     // タスクが更新されたらリダイレクト
