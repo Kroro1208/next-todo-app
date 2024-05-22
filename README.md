@@ -25,6 +25,8 @@ npm i -D @types/react-icons // 型定義
 ```
 
 ## Mongo DB設定
+https://www.mongodb.com/ja-jp
+
 ```
 npm i mongoose
 ```
