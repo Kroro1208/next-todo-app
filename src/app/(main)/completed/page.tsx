@@ -20,9 +20,13 @@ const CompletedTaskPage = async () => {
         
       </header>
       <div className="mt-8 flex flex-wrap gap-4">
-        {completedTask.map((task) => (
-          <TaskCard key={task._id} task={task}/>
-        ))}
+        {completedTask.length > 0 ? (
+          completedTask.map((task) => (
+            <TaskCard key={task._id} task={task}/>
+          ))
+        ) : (
+          <h1 className="text-xl font-semibold text-gray-500">現在、完了済みタスクはありません</h1>
+        ) }
       </div>
     </div>
   )

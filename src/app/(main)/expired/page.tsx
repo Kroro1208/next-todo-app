@@ -22,9 +22,13 @@ const ExpiredTaskPage = async () => {
         
       </header>
       <div className="mt-8 flex flex-wrap gap-4">
-        {expiredTask.map((task) => (
-          <TaskCard key={task._id} task={task}/>
-        ))}
+        { expiredTask.length > 0 ? (
+          expiredTask.map((task) => (
+            <TaskCard key={task._id} task={task}/>
+          ))) : (
+            <h1 className="text-xl font-semibold text-gray-500">現在、期限切れタスクはありません</h1>
+          )
+        }
       </div>
     </div>
   )
