@@ -17,8 +17,8 @@ const TaskCard = ({ task }: TaskCardProps) => {
         <div className="text-sm">{task.dueDate}</div>
         <div className="flex justify-between items-center">
             <div className={`mt-1 text-sm px-2 py-1 w-24 text-center text-white rounded-full shadow-sm
-            ${task.isComppleted ? 'bg-green-500' : 'bg-red-400'}
-            `}>{task.isComppleted ? '完了' : '未完了'}</div>
+            ${task.isCompleted ? 'bg-green-500' : 'bg-red-400'}
+            `}>{task.isCompleted ? '完了' : '未完了'}</div>
             <div className="flex gap-4">
                 <EditButton id={task.id}/>
                 <DeleteButton id={task.id}/>

@@ -4,7 +4,7 @@ export interface Task {
     title: string;
     description: string;
     dueDate: string;
-    isComppleted: boolean;
+    isCompleted: boolean;
 }
 
 export interface TaskDocument extends Task, Document {
@@ -24,7 +24,7 @@ const taskSchema = new mongoose.Schema<TaskDocument>({
         type: String,
         required: true,
     },
-    isComppleted: {
+    isCompleted: {
         type: Boolean,
         default: false,
     }
