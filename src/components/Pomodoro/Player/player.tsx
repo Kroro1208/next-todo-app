@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player/lazy';
-import ToolBar from '../ToolBar/toolBar';
+import ToolBar from '../ToolBar/ToolBar';
 
 const Player = () => {
   const [isClient, setIsClient] = useState(false);

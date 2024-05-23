@@ -4,7 +4,7 @@ import { Play } from 'lucide-react';
 
 const Timer = () => {
   return (
-    <div className='bg-red-300 p-2 mb-2 border h-10 flex items-center justify-between rounded-md'>
+    <div className='bg-red-300 p-2 mb-2 border h-10 flex items-center justify-between'>
     <div className='flex items-center'>
         <Button size="icon" variant="ghost">
             <Play size={20} color='black'/>
