@@ -18,12 +18,12 @@ import { useEffect, useState } from "react";
 const defaultValue: PomodoroSettings = {
     name: "User",
     volume: 0.2,
-    avatarURL: "",
+    avatarURL: "avatarURL",
     playList: 'https://www.youtube.com/watch?v=2iIIzVfNlRk',
 };
 
 const UserMenu = () => {
-    const [ settings, setSettings ] = useLocalStorageState<PomodoroSettings>('pomodoro-music', defaultValue );
+    const [ settings, setSettings ] = useLocalStorageState<PomodoroSettings>('pomodoro-music', {defaultValue} );
     const form = useForm<PomodoroSettings>({
         defaultValues: settings || defaultValue
     });
@@ -39,13 +39,23 @@ const UserMenu = () => {
         setMessage("保存されました");
         setTimeout(() => setMessage(""), 3000);
     }
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            form.setValue("avatarURL", reader.result as string);
+          };
+          reader.readAsDataURL(file);
+        }
+      };
 
   return (
     <Popover>
         <PopoverTrigger asChild>
             <Button size="icon" variant="ghost" className="rounded-full">
                 <Avatar>
-                    < AvatarImage src="/hacker.png" />
+                    <AvatarImage src={settings.avatarURL || "/hacker.png"} />
                 </Avatar>
             </Button>
         </PopoverTrigger>
@@ -71,7 +81,7 @@ const UserMenu = () => {
                         <FormItem>
                             <Label>アバター画像</Label>
                             <FormControl>
-                                <Input {...field}/>
+                                <Input type="file" onChange={handleFileChange}/>
                             </FormControl>
                         </FormItem>
                     )}>

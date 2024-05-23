@@ -23,7 +23,7 @@ const defaultValue: PomodoroSettings = {
   
 
 const PlayList = () => {
-  const [ settings, setSettings ] = useLocalStorageState<PomodoroSettings>('pomodoro-music', defaultValue );
+  const [ settings, setSettings ] = useLocalStorageState<PomodoroSettings>('pomodoro-music', {defaultValue} );
     const form = useForm<PomodoroSettings>({
         defaultValues: settings || defaultValue
     });
