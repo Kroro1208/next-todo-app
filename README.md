@@ -30,3 +30,10 @@ https://www.mongodb.com/ja-jp
 ```
 npm i mongoose
 ```
+
+## Playlistとポモドーロタイマ-
+```
+npm i react-timer-hook
+npm i -D @types/react-howler
+npm i react-player
+```

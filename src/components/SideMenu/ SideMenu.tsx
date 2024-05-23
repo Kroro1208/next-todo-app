@@ -1,10 +1,11 @@
+import Player from "../Pomodoro/Player/player";
 import NavList from "./NavList/NavList"
 import { FaGripfire } from "react-icons/fa";
 
 
 const SideMenu = () => {
   return (
-    <div className="w-64 pt-8 bg-gray-500 text-white">
+    <div className="w-80 pt-8 bg-gray-500 text-white">
       <div>
         <div className="flex justify-center">
           <FaGripfire size={28}/>
@@ -12,6 +13,7 @@ const SideMenu = () => {
           <FaGripfire size={28}/>
         </div>
         <NavList />
+        <Player />
       </div>
     </div>
   )
