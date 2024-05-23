@@ -9,7 +9,7 @@ const ToolBar = () => {
       <div>
           <Timer />
       </div>
-      <div className='flex gap-3'>
+      <div className='flex gap-3 pb-2'>
         <PlayList />
         <UserMenu />
       </div>

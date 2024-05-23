@@ -33,7 +33,7 @@ const navList: NavItemType[] = [
 
 const NavList = () => {
   return (
-    <div className="mt-24">
+    <div className="mt-14">
       {navList.map((item) => (
         <NavaItem key={item.id} label={item.label} link={item.link} icon={item.icon}/>
       ))}

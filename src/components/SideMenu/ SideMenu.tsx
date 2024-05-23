@@ -13,6 +13,7 @@ const SideMenu = () => {
             <h1 className="px-1 text-xl font-semibold text-center">Neo Todo App</h1>
             <FaGripfire size={28}/>
           </div>
+          <p className="text-center">作業時間を効率的に</p>
           <NavList />
         </div>
       </div>

@@ -12,7 +12,7 @@ const Player = () => {
 
   return (
     <>
-      <div className="player-wrapper flex flex-col gap-2">
+      <div className="player-wrapper flex flex-col gap-2 h-72">
           <div className='flex-1'>
           {isClient ? (
               <ReactPlayer
