@@ -1,9 +1,11 @@
 'use client';
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { Button } from "@/components/ui/button"
 import { Pause, Play } from 'lucide-react';
 import { useStopwatch } from 'react-timer-hook';
 import useLocalStorageState from 'use-local-storage-state';
+import ProgressBar from "@ramonak/react-progress-bar";
+
 
 
 const Timer = () => {
@@ -40,6 +42,14 @@ const getFormatedTime = (time: number) => {
   return time < 10 ? `0${time}` : time;
 }
 
+const progressPercentage = useMemo(() => {
+  if (mode === 'working') {
+    return (minutes * 60 + seconds) / (1 * 60) * 100; // 1分を基準に
+  } else {
+    return (minutes * 60 + seconds) / (1 * 60) * 100; // 1分を基準に
+  }
+}, [minutes, seconds, mode]);
+
   return (
     <div className='bg-red-300 p-2 mb-2 border h-12 flex items-center justify-between'>
       <div className='flex items-center gap-1'>
@@ -63,9 +73,15 @@ const getFormatedTime = (time: number) => {
             {getFormatedTime(minutes)}:{getFormatedTime(seconds)}
           </time>
       </div>
-    <div className='overflow-hidden h-5 w-72 rounded-full'>
-        <div className='size-full bg-muted'></div>
-    </div>
+      <div className='flex-1'>
+        <ProgressBar
+          completed={progressPercentage}
+          bgColor="#4caf50"
+          height="20px"
+          width="100%"
+          isLabelVisible={false}
+        />
+      </div>    
 </div>
   )
 }
