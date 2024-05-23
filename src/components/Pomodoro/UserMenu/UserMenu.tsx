@@ -6,8 +6,8 @@ import {
     PopoverTrigger,
   } from "@/components/ui/popover"
   import { Avatar, AvatarImage } from "@/components/ui/avatar"
-import useLocalStorageState from "use-local-storage";
-import { PomodoroSettings } from "@/lib/settings";
+  import useLocalStorageState from 'use-local-storage-state'
+  import { PomodoroSettings } from "@/lib/settings";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Label } from "@/components/ui/label";

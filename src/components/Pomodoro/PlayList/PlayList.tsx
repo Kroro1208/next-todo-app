@@ -9,11 +9,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { PomodoroSettings } from "@/lib/settings";
 import { ListVideo } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import useLocalStorageState from 'use-local-storage';
+import useLocalStorageState from 'use-local-storage-state';
 import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 
 const defaultValue: PomodoroSettings = {
   name: "User",
@@ -30,6 +29,10 @@ const PlayList = () => {
     });
 
   const [ message, setMessage ] = useState<string>("");
+
+  useEffect(() => {
+    form.reset(settings);
+  }, [settings, form]);
 
   const onSubmit = (data: PomodoroSettings) => {
     setSettings(data);
