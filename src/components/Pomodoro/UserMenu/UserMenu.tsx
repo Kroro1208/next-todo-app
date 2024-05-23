@@ -8,11 +8,11 @@ import {
   import { Avatar, AvatarImage } from "@/components/ui/avatar"
 import useLocalStorage from "use-local-storage";
 import { PomodoroSettings } from "@/lib/settings";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
 const defaultValue: PomodoroSettings = {
@@ -29,12 +29,16 @@ const UserMenu = () => {
         defaultValues: settings || defaultValue
     });
 
+    const [ message, setMessage ] = useState<string>("");
+
     useEffect(() => {
         form.reset(settings);
       }, [settings, form]);
 
     const onSubmit = (data: PomodoroSettings) => {
         setSettings(data);
+        setMessage("保存されました");
+        setTimeout(() => setMessage(""), 3000);
     }
 
   return (
@@ -80,14 +84,15 @@ const UserMenu = () => {
                         <FormItem>
                             <Label>音量</Label>
                             <FormControl>
-                                <Input type="number" {...field}/>
+                                <Input type="number" step="0.1" {...field}/>
                             </FormControl>
                         </FormItem>
                     )}>
                     </FormField>
-                    <Button>保存</Button>
+                    <Button type="submit">保存</Button>
                 </form>
             </Form>
+            {message && <p className="mt-2 text-green-600">{message}</p>}
         </PopoverContent>
     </Popover>
   )
