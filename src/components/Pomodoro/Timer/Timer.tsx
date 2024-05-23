@@ -25,13 +25,13 @@ const Timer = () => {
   }, [reset]);
 
   useEffect(() => {
-    if(minutes >= 1 && mode == 'working'){
+    if(minutes >= 25 && mode == 'working'){
       console.log(mode);
       alert('休憩時間です！')
       setMode('break');
       resetWrapper();
     }
-    if(minutes >= 1 && mode == 'break'){
+    if(minutes >= 25 && mode == 'break'){
       alert('作業開始しましょう！')
       setMode('working');
       resetWrapper();
@@ -44,9 +44,9 @@ const getFormatedTime = (time: number) => {
 
 const progressPercentage = useMemo(() => {
   if (mode === 'working') {
-    return (minutes * 60 + seconds) / (1 * 60) * 100; // 1分を基準に
+    return (minutes * 60 + seconds) / (25 * 60) * 100; // 1分を基準に
   } else {
-    return (minutes * 60 + seconds) / (1 * 60) * 100; // 1分を基準に
+    return (minutes * 60 + seconds) / (25 * 60) * 100; // 1分を基準に
   }
 }, [minutes, seconds, mode]);
 

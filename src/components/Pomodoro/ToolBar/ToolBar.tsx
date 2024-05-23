@@ -9,8 +9,9 @@ const ToolBar = () => {
       <div>
           <Timer />
       </div>
-      <div className='flex gap-3 pb-2'>
+      <div className='flex items-center justify-between gap-3 px-3'>
         <PlayList />
+        <p>切り替えを大切に</p>
         <UserMenu />
       </div>
     </div>

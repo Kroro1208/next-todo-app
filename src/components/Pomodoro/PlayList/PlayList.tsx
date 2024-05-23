@@ -43,7 +43,7 @@ const PlayList = () => {
   return (
     <Popover>
         <PopoverTrigger asChild>
-            <Button size="icon" variant="ghost">
+            <Button size="icon" variant="ghost" className="ring-offset-2 ring-2">
                 <ListVideo size={26} />
             </Button>
         </PopoverTrigger>

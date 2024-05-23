@@ -53,9 +53,9 @@ const UserMenu = () => {
   return (
     <Popover>
         <PopoverTrigger asChild>
-            <Button size="icon" variant="ghost" className="rounded-full">
+            <Button size="icon" variant="ghost" className="rounded-full ring-offset-2 ring-2">
                 <Avatar>
-                    <AvatarImage src={settings.avatarURL || "/hacker.png"} />
+                    <AvatarImage src={settings.avatarURL || "/hacker.png"}/>
                 </Avatar>
             </Button>
         </PopoverTrigger>
