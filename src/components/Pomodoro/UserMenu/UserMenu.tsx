@@ -6,7 +6,7 @@ import {
     PopoverTrigger,
   } from "@/components/ui/popover"
   import { Avatar, AvatarImage } from "@/components/ui/avatar"
-import useLocalStorage from "use-local-storage";
+import useLocalStorageState from "use-local-storage";
 import { PomodoroSettings } from "@/lib/settings";
 import { useForm } from "react-hook-form";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
@@ -21,10 +21,9 @@ const defaultValue: PomodoroSettings = {
     avatarURL: "",
     playList: 'https://www.youtube.com/watch?v=2iIIzVfNlRk',
 };
-  
 
 const UserMenu = () => {
-    const [ settings, setSettings ] = useLocalStorage<PomodoroSettings>('pomodoro-music', defaultValue );
+    const [ settings, setSettings ] = useLocalStorageState<PomodoroSettings>('pomodoro-music', defaultValue );
     const form = useForm<PomodoroSettings>({
         defaultValues: settings || defaultValue
     });
