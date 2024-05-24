@@ -1,16 +1,15 @@
 'use client';
-import React, { useEffect, useMemo } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import { Button } from "@/components/ui/button"
 import { Pause, Play } from 'lucide-react';
 import { useStopwatch } from 'react-timer-hook';
 import useLocalStorageState from 'use-local-storage-state';
 import ProgressBar from "@ramonak/react-progress-bar";
 
-
-
 const Timer = () => {
-
-  const [mode, setMode ] = useLocalStorageState<'working' | 'break'>('working');
+  const [mode, setMode ] = useLocalStorageState<'working' | 'break'>('mode', {
+    defaultValue: 'working'
+  });
   const {
     seconds,
     minutes,
@@ -21,18 +20,26 @@ const Timer = () => {
   } = useStopwatch();
 
   const resetWrapper = React.useCallback(() => {
-    reset();
+    reset(undefined, false);
   }, [reset]);
 
+  const alarmRef = useRef<HTMLAudioElement>(null);
+
   useEffect(() => {
-    if(minutes >= 25 && mode == 'working'){
+    if(minutes >= 1 && mode == 'working'){
       console.log(mode);
-      alert('休憩時間です！')
+      alert('休憩時間です！');
+      if (alarmRef.current) {
+        alarmRef.current.play();
+      }
       setMode('break');
       resetWrapper();
     }
-    if(minutes >= 25 && mode == 'break'){
+    if(minutes >= 1 && mode == 'break'){
       alert('作業開始しましょう！')
+       if (alarmRef.current) {
+        alarmRef.current.play();
+      }
       setMode('working');
       resetWrapper();
     }
@@ -44,14 +51,15 @@ const getFormatedTime = (time: number) => {
 
 const progressPercentage = useMemo(() => {
   if (mode === 'working') {
-    return (minutes * 60 + seconds) / (25 * 60) * 100; // 1分を基準に
+    return (minutes * 60 + seconds) / (1 * 60) * 100;
   } else {
-    return (minutes * 60 + seconds) / (25 * 60) * 100; // 1分を基準に
+    return (minutes * 60 + seconds) / (1 * 60) * 100;
   }
 }, [minutes, seconds, mode]);
 
   return (
     <div className='bg-red-300 p-2 mb-2 border h-12 flex items-center justify-between'>
+      <audio ref={alarmRef} src="/alarm.mp3" preload="auto" />
       <div className='flex items-center gap-1'>
          { isRunning ? 
          <Button size="icon" variant="ghost" onClick={() => {
