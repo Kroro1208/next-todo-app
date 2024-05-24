@@ -1,4 +1,4 @@
-import TaskCard from "@/components/TaskCard/ TaskCard";
+import TaskCard from "@/components/TaskCard/TaskCard";
 import { TaskDocument } from "@/models/task";
 import Link from "next/link";
 import { MdOutlineLibraryAdd } from "react-icons/md";
