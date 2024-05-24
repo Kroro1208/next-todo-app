@@ -1,5 +1,5 @@
 import { TaskDocument } from "@/models/task"
-import EditButton from "./ EditButton/EditButton"
+import EditButton from "./EditButton/EditButton"
 import DeleteButton from "./DeleteButton/DeleteButton"
 
 interface TaskCardProps {
